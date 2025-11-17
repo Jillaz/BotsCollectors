@@ -6,6 +6,7 @@ public class Bot : MonoBehaviour
 
     [SerializeField] private BotMover _botMover;
     [SerializeField] private BotExtractor _extractor;
+    [SerializeField] private BotRotator _botRotator;
     private Base _base;
     private Perl _perlToGet;
 
@@ -20,6 +21,7 @@ public class Bot : MonoBehaviour
         _perlToGet = perl;
         perl.Busy();
         _botMover.SetTarget(perl.transform);
+        _botRotator.SetTarget(perl.transform);
     }
 
     public void SetBasePosition(Base mainBase)
@@ -44,11 +46,13 @@ public class Bot : MonoBehaviour
     private void BackToBase()
     {
         _botMover.SetTarget(_base.transform);
+        _botRotator.SetTarget(_base.transform);
     }
 
     private void AwaitingOrders()
     {
         IsBusy = false;
         _botMover.StopMoving();
+        _botRotator.StopRotating();
     }
 }

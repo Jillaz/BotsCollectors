@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6823261526589533648}
   - component: {fileID: 2080327114900416743}
   - component: {fileID: 7515196563986290990}
+  - component: {fileID: 1515275786961909926}
   - component: {fileID: 7845073939312926383}
   m_Layer: 7
   m_Name: Bot
@@ -160,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bot
   _botMover: {fileID: 7515196563986290990}
   _extractor: {fileID: 7845073939312926383}
+  _botRotator: {fileID: 1515275786961909926}
 --- !u!114 &7515196563986290990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +175,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotMover
   _speed: 10
+--- !u!114 &1515275786961909926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619445382086163305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d07602471f3a94caf6a5b134c1f320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BotRotator
 --- !u!114 &7845073939312926383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 5293765163242200769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.371, y: 0.35, z: 0.002}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0.45}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

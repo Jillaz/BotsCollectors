@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BotMover : MonoBehaviour
 {
-
     [SerializeField] private float _speed;
     private Transform _targetPosition = null;
 
