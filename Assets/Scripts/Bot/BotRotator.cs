@@ -2,17 +2,7 @@ using UnityEngine;
 
 public class BotRotator : MonoBehaviour
 {
-    private Transform _target;
-
-    private void Update()
-    {
-        if(_target == null)
-        {
-            return;
-        }
-
-        transform.LookAt(_target.position);
-    }
+    private Transform _target;    
 
     public void SetTarget(Transform target)
     {
@@ -22,5 +12,15 @@ public class BotRotator : MonoBehaviour
     public void StopRotating()
     {
         _target = null;
+    }
+
+    private void Update()
+    {
+        if (_target == null)
+        {
+            return;
+        }
+
+        transform.LookAt(_target.position);
     }
 }

@@ -9,22 +9,22 @@ public class BotsTaskManager : MonoBehaviour
     private List<Bot> _bots = new List<Bot>();
     private List<Perl> _perl = new List<Perl>();
 
+    public void UpdateStatus()
+    {
+        _perl = _perlLocator.Search();
+        SetTask();
+    }
+
     private void Start()
     {
+        _bots = _botsLocator.Search();
         UpdateStatus();
     }
 
     private void Update()
     {
         UpdateStatus();
-    }
-
-    public void UpdateStatus()
-    {
-        _bots = _botsLocator.Search();
-        _perl = _perlLocator.Search();
-        SetTask();
-    }
+    }    
 
     private void SetTask()
     {

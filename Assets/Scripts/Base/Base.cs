@@ -10,7 +10,6 @@ public class Base : MonoBehaviour
     public void GetResource(Perl perl)
     {
         perl.Delivered();
-        _taskManager.UpdateStatus();
         PerlDelivered?.Invoke();
     }
 }
