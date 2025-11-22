@@ -5,6 +5,14 @@ public class BotMover : MonoBehaviour
     [SerializeField] private float _speed;
     private Transform _targetPosition = null;    
 
+    private void Update()
+    {
+        if (_targetPosition != null)
+        {
+            Move();
+        }
+    }
+
     public void SetTarget(Transform target)
     {
         _targetPosition = target.transform;
@@ -13,14 +21,6 @@ public class BotMover : MonoBehaviour
     public void StopMoving()
     {
         _targetPosition = null;
-    }
-
-    private void Update()
-    {
-        if (_targetPosition != null)
-        {
-            Move();
-        }
     }
 
     private void Move()

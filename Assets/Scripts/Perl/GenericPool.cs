@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -5,7 +6,6 @@ public class GenericPool<T> where T : Component
 {
     private ObjectPool<T> _pool;
     private T _prefab;
-    private int _totalGetted = 0;
 
     public GenericPool(T prefab, int poolCapacity = 10, int poolMaxSize = 20)
     {
@@ -23,8 +23,6 @@ public class GenericPool<T> where T : Component
 
     public T Get()
     {
-        _totalGetted++;
-
         return _pool.Get();
     }
 

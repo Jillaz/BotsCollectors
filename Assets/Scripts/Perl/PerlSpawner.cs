@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,8 +8,9 @@ public class PerlSpawner : MonoBehaviour
     [SerializeField] private int _preSpawn;
     [SerializeField] private Perl _prefab;
     [SerializeField] private PerlSpawnArea _spawnArea;
-
     private GenericPool<Perl> _pool;
+
+    public event Action<Perl> Spawned;
 
     private void Start()
     {
@@ -32,6 +34,7 @@ public class PerlSpawner : MonoBehaviour
     {
         Perl perl = _pool.Get();
         perl.transform.position = _spawnArea.GetSpawnPosition();
+        Spawned?.Invoke(perl);
         AddSubscribe(perl);
     }
 

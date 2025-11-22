@@ -2,32 +2,13 @@ using UnityEngine;
 
 public class Bot : MonoBehaviour
 {
-    public bool IsBusy { get; private set; } = false;
-
     [SerializeField] private BotMover _botMover;
     [SerializeField] private BotExtractor _extractor;
     [SerializeField] private BotRotator _botRotator;
     private Base _base;
     private Perl _perlToGet;
 
-    public void GetPerl(Perl perl)
-    {
-        if (perl == null)
-        {
-            return;
-        }
-
-        IsBusy = true;
-        _perlToGet = perl;
-        perl.Busy();
-        _botMover.SetTarget(perl.transform);
-        _botRotator.SetTarget(perl.transform);
-    }
-
-    public void SetBasePosition(Base mainBase)
-    {
-        _base = mainBase;
-    }
+    public bool IsBusy { get; private set; } = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,6 +22,24 @@ public class Bot : MonoBehaviour
             mainBase.GetResource(_extractor.GetFromStorage());
             AwaitingOrders();
         }
+    }
+
+    public void SetPerl(Perl perl)
+    {
+        if (perl == null)
+        {
+            return;
+        }
+
+        IsBusy = true;
+        _perlToGet = perl;
+        _botMover.SetTarget(perl.transform);
+        _botRotator.SetTarget(perl.transform);
+    }
+
+    public void SetBasePosition(Base mainBase)
+    {
+        _base = mainBase;
     }
 
     private void BackToBase()

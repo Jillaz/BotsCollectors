@@ -233,17 +233,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00d6ca1eae9f78741a7a6237d27f20d1, type: 3}
---- !u!114 &676201203 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -6034486232876275778, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-  m_PrefabInstance: {fileID: 5643644410087657674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881816220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0228f4b94ca9c4a8d6fb753349294e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Base
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,54 +442,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &863741417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4272863154601783502, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-  m_PrefabInstance: {fileID: 5643644410087657674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &863741420 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1867679413733960118, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-  m_PrefabInstance: {fileID: 5643644410087657674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863741417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
---- !u!114 &863741422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863741417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b1dd05d7141b64dbce7d0ccea532ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CountDisplayer
-  _text: {fileID: 863741420}
-  _counter: {fileID: 881816226}
---- !u!1 &881816220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2751534428663867244, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-  m_PrefabInstance: {fileID: 5643644410087657674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &881816226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881816220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b60b23cb0ba674cb87c88f572a9de9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Counter
-  _base: {fileID: 676201203}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b4db91179a06440a7713de594792b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PerlSpawner
-  _spawnDelay: 3
+  _spawnDelay: 2
   _preSpawn: 5
   _prefab: {fileID: 4232987917561872820, guid: fc988e7f28331804a99b1c2c1d804129, type: 3}
   _spawnArea: {fileID: 992832622}
@@ -878,17 +819,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1867679413733960118, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-      propertyPath: m_text
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2751534428663867244, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       propertyPath: m_Name
       value: Base
-      objectReference: {fileID: 0}
-    - target: {fileID: 4272863154601783502, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-      propertyPath: m_Name
-      value: TextCountDisplayer
       objectReference: {fileID: 0}
     - target: {fileID: 6003282791885048263, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       propertyPath: m_LocalPosition.x
@@ -934,16 +867,14 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 8325984757095760148, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
+      propertyPath: _spawner
+      value: 
+      objectReference: {fileID: 992832621}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2751534428663867244, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 881816226}
-    - targetCorrespondingSourceObject: {fileID: 4272863154601783502, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 863741422}
     - targetCorrespondingSourceObject: {fileID: 4272863154601783502, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}

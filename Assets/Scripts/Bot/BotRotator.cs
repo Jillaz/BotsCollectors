@@ -4,16 +4,6 @@ public class BotRotator : MonoBehaviour
 {
     private Transform _target;    
 
-    public void SetTarget(Transform target)
-    {
-        _target = target;
-    }
-
-    public void StopRotating()
-    {
-        _target = null;
-    }
-
     private void Update()
     {
         if (_target == null)
@@ -22,5 +12,15 @@ public class BotRotator : MonoBehaviour
         }
 
         transform.LookAt(_target.position);
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
+
+    public void StopRotating()
+    {
+        _target = null;
     }
 }

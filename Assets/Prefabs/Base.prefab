@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 2719030279269782398}
   - component: {fileID: 2667260619916635696}
   - component: {fileID: 1709339110700931255}
-  - component: {fileID: 1241209196896353527}
   - component: {fileID: 2280855629737028963}
   - component: {fileID: 486599003191408860}
   - component: {fileID: -6034486232876275778}
+  - component: {fileID: 1040336771445824014}
+  - component: {fileID: 8325984757095760148}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -117,22 +118,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1241209196896353527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2751534428663867244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0723e796a8d253c4b9e679e3e45f2632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ResourceLocator
-  _searchRadius: 100
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &2280855629737028963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotsTaskManager
   _botsLocator: {fileID: 2280855629737028963}
-  _perlLocator: {fileID: 1241209196896353527}
   _base: {fileID: -6034486232876275778}
+  _list: {fileID: 8325984757095760148}
 --- !u!114 &-6034486232876275778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +162,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Base
   _taskManager: {fileID: 486599003191408860}
+--- !u!114 &1040336771445824014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751534428663867244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b60b23cb0ba674cb87c88f572a9de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counter
+  _base: {fileID: -6034486232876275778}
+--- !u!114 &8325984757095760148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751534428663867244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfa11547e70dbf4894bedf6437dfd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectList
+  _spawner: {fileID: 0}
+  _freePerls: []
+  _busyPerls: []
 --- !u!1 &4272863154601783502
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,8 +202,9 @@ GameObject:
   - component: {fileID: 2943676598044917008}
   - component: {fileID: 1867679413733960118}
   - component: {fileID: 8150533378947613090}
+  - component: {fileID: 1270725901290246216}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: TextCountDisplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample text
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -370,6 +384,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextOrientation
   _camera: {fileID: 0}
+--- !u!114 &1270725901290246216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272863154601783502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b1dd05d7141b64dbce7d0ccea532ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CountDisplayer
+  _text: {fileID: 1867679413733960118}
+  _counter: {fileID: 1040336771445824014}
 --- !u!1 &6600305775701622543
 GameObject:
   m_ObjectHideFlags: 0
