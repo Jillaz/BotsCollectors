@@ -10,8 +10,6 @@ public class PerlSpawner : MonoBehaviour
     [SerializeField] private PerlSpawnArea _spawnArea;
     private GenericPool<Perl> _pool;
 
-    public event Action<Perl> Spawned;
-
     private void Start()
     {
         _pool = new GenericPool<Perl>(_prefab);
@@ -26,29 +24,23 @@ public class PerlSpawner : MonoBehaviour
         while (enabled)
         {
             yield return delay;
-            GetPerl();
+            SpawnPerl();
         }
     }
 
-    private void GetPerl()
+    private void SpawnPerl()
     {
         Perl perl = _pool.Get();
         perl.transform.position = _spawnArea.GetSpawnPosition();
-        Spawned?.Invoke(perl);
-        AddSubscribe(perl);
+        perl.Release += Release;
     }
 
     private void PreSpaw()
     {
         for (int i = 0; i < _preSpawn; i++)
         {
-            GetPerl();
+            SpawnPerl();
         }
-    }
-
-    private void AddSubscribe(Perl perl)
-    {
-        perl.Release += Release;
     }
 
     private void Release(Perl perl)
