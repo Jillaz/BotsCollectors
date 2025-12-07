@@ -716,11 +716,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1502001446 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7784788486511487692, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
-  m_PrefabInstance: {fileID: 5643644410087657674}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1519011331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -778,6 +773,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00d6ca1eae9f78741a7a6237d27f20d1, type: 3}
+--- !u!4 &1784200425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6642516472102851880, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
+  m_PrefabInstance: {fileID: 5643644410087657674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804715890
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +868,7 @@ PrefabInstance:
     - target: {fileID: -6034486232876275778, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       propertyPath: _unloadPlace
       value: 
-      objectReference: {fileID: 1502001446}
+      objectReference: {fileID: 1784200425}
     - target: {fileID: 2280855629737028963, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       propertyPath: '_bots.Array.data[0]'
       value: 
