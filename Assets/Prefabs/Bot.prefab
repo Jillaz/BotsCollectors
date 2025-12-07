@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2398959952148072145}
   - component: {fileID: -6823261526589533648}
   - component: {fileID: 2080327114900416743}
-  - component: {fileID: 7515196563986290990}
-  - component: {fileID: 1515275786961909926}
-  - component: {fileID: 7845073939312926383}
+  - component: {fileID: 6844180342500661366}
+  - component: {fileID: 895562761552217722}
+  - component: {fileID: 4348048142008766354}
   m_Layer: 7
   m_Name: Bot
   m_TagString: Untagged
@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216255ee75c7e8b44a5b8d7d0f553f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bot
-  _botMover: {fileID: 7515196563986290990}
-  _extractor: {fileID: 7845073939312926383}
-  _botRotator: {fileID: 1515275786961909926}
---- !u!114 &7515196563986290990
+  _mover: {fileID: 895562761552217722}
+  _rotator: {fileID: 4348048142008766354}
+  _extractor: {fileID: 6844180342500661366}
+--- !u!114 &6844180342500661366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,11 +171,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4619445382086163305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b19b1865ff1e851489cb968ffe334830, type: 3}
+  m_Script: {fileID: 11500000, guid: d28ffde9764ca6f429156d98ca9251e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BotMover
-  _speed: 10
---- !u!114 &1515275786961909926
+  m_EditorClassIdentifier: Assembly-CSharp::ExtractorCoroutine
+  _storage: {fileID: 621310068636643524}
+  _liftSpeed: 2
+  _targetDistanceOffset: 0.1
+--- !u!114 &895562761552217722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,10 +186,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4619445382086163305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d07602471f3a94caf6a5b134c1f320, type: 3}
+  m_Script: {fileID: 11500000, guid: cce294bdca6c4ba41943bf40c11dffa3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BotRotator
---- !u!114 &7845073939312926383
+  m_EditorClassIdentifier: Assembly-CSharp::MoverCoroutine
+  _moveSpeed: 10
+  _targetDistanceOffset: 0.1
+--- !u!114 &4348048142008766354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,10 +200,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4619445382086163305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cb1e76e334a664683169e56c8678e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 988732a4ce93b9d49921ed51bd1a245d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BotMiner
-  _storagePosition: {fileID: 621310068636643524}
+  m_EditorClassIdentifier: Assembly-CSharp::RotatorCoroutine
+  _rotationSpeed: 180
+  _targetRotationOffset: 0.1
 --- !u!1 &5293765163242200769
 GameObject:
   m_ObjectHideFlags: 0

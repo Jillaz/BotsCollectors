@@ -5,7 +5,7 @@ public class Base : MonoBehaviour
 {
     public event Action PerlDelivered;
 
-    public void GetResource(Perl perl)
+    public void TakeResource(Perl perl)
     {
         perl.Delivered();
         PerlDelivered?.Invoke();

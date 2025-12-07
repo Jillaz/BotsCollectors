@@ -1,57 +1,39 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bot : MonoBehaviour
 {
-    [SerializeField] private BotMover _botMover;
-    [SerializeField] private BotExtractor _extractor;
-    [SerializeField] private BotRotator _botRotator;
+    [SerializeField] private MoverCoroutine _mover;
+    [SerializeField] private RotatorCoroutine _rotator;
+    [SerializeField] private ExtractorCoroutine _extractor;
+    private Perl _perl;
     private Base _base;
-    private Perl _perlToGet;
 
     public bool IsBusy { get; private set; } = false;
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator ActionsQueue()
     {
-        if (other.TryGetComponent(out Perl perl) && (_perlToGet == perl))
-        {
-            _extractor.PutInStorage(perl);
-            BackToBase();
-        }
-        else if (other.TryGetComponent(out Base mainBase) && _extractor.IsStorageFull)
-        {
-            mainBase.GetResource(_extractor.GetFromStorage());
-            AwaitingOrders();
-        }
+        yield return _rotator.SmoothLookAt(_perl.transform.position);
+        yield return _mover.MoveTo(_perl.transform.position);
+        yield return _extractor.Extract(_perl);
+        yield return _rotator.SmoothLookAt(_base.transform.position);
+        yield return _mover.MoveTo(_base.transform.position);
+        yield return _extractor.ReleaseFromStorage();
+
+        IsBusy = false;
+        _base.TakeResource(_perl);
+        yield return null;
     }
 
     public void SetPerl(Perl perl)
     {
-        if (perl == null)
-        {
-            return;
-        }
-
         IsBusy = true;
-        _perlToGet = perl;
-        _botMover.SetTarget(perl.transform);
-        _botRotator.SetTarget(perl.transform);
+        _perl = perl;
+        StartCoroutine(ActionsQueue());
     }
 
     public void SetBasePosition(Base mainBase)
     {
         _base = mainBase;
-    }
-
-    private void BackToBase()
-    {
-        _botMover.SetTarget(_base.transform);
-        _botRotator.SetTarget(_base.transform);
-    }
-
-    private void AwaitingOrders()
-    {
-        IsBusy = false;
-        _botMover.StopMoving();
-        _botRotator.StopRotating();
     }
 }

@@ -16,6 +16,5 @@ public class MoverCoroutine : MonoBehaviour
         }
 
         transform.position = targetPosition;
-        Debug.Log($"Достиг цели {targetPosition}");
     }
 }

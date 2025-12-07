@@ -1,47 +1,43 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class ExtractorCoroutine : MonoBehaviour
 {
     [SerializeField] private Transform _storage;
     [SerializeField] private float _liftSpeed = 1f;
     [SerializeField] private float _targetDistanceOffset = 0.1f;
-    private Transform _cylinder;
+    private Perl _perl;
 
-    public IEnumerator Extract(Transform target)
+    public IEnumerator Extract(Perl target)
     {
-        _cylinder = target;
-        _cylinder.SetParent(transform);
+        _perl = target;
+        _perl.transform.SetParent(transform);
 
-        while (Vector3.Distance(_cylinder.position, _storage.position) > _targetDistanceOffset)
+        while (Vector3.Distance(_perl.transform.position, _storage.position) > _targetDistanceOffset)
         {
-            _cylinder.position = Vector3.MoveTowards(_cylinder.position, _storage.position, _liftSpeed * Time.deltaTime);
+            _perl.transform.position = Vector3.MoveTowards(_perl.transform.position, _storage.position, _liftSpeed * Time.deltaTime);
 
             yield return null;
         }
 
-        _cylinder.position = _storage.position;
-
-        Debug.Log("Погузка завершена");
+        _perl.transform.position = _storage.position;
 
         yield return null;
     }
 
     public IEnumerator ReleaseFromStorage()
     {        
-        while (Vector3.Distance(_cylinder.position, transform.position) > _targetDistanceOffset)
+        while (Vector3.Distance(_perl.transform.position, transform.position) > _targetDistanceOffset)
         {
-            _cylinder.position = Vector3.MoveTowards(_cylinder.position, transform.position, _liftSpeed * Time.deltaTime);
+            _perl.transform.position = Vector3.MoveTowards(_perl.transform.position, transform.position, _liftSpeed * Time.deltaTime);
 
             yield return null;
         }
 
-        _cylinder.position = transform.position;
+        _perl.transform.position = transform.position;
 
-        _cylinder.SetParent(transform);
-        Debug.Log("Выгрузка завершена");
+        _perl.transform.SetParent(null);
 
-        yield return null;  
+        yield return null;
     }
 }

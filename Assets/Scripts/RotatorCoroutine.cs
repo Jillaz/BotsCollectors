@@ -20,6 +20,5 @@ public class RotatorCoroutine : MonoBehaviour
         }
 
         transform.rotation = targetRotation;
-        Debug.Log($"Повернулся к цели {targetPosition}");
     }
 }
