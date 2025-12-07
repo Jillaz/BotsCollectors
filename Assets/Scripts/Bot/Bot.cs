@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Bot : MonoBehaviour
@@ -8,6 +9,7 @@ public class Bot : MonoBehaviour
     [SerializeField] private ExtractorCoroutine _extractor;
     private Perl _perl;
     private Base _base;
+    private Transform _unloadPlace;
 
     public bool IsBusy { get; private set; } = false;
 
@@ -16,8 +18,8 @@ public class Bot : MonoBehaviour
         yield return _rotator.SmoothLookAt(_perl.transform.position);
         yield return _mover.MoveTo(_perl.transform.position);
         yield return _extractor.Extract(_perl);
-        yield return _rotator.SmoothLookAt(_base.transform.position);
-        yield return _mover.MoveTo(_base.transform.position);
+        yield return _rotator.SmoothLookAt(_unloadPlace.position);
+        yield return _mover.MoveTo(_unloadPlace.position);
         yield return _extractor.ReleaseFromStorage();
 
         IsBusy = false;
@@ -35,5 +37,6 @@ public class Bot : MonoBehaviour
     public void SetBasePosition(Base mainBase)
     {
         _base = mainBase;
+        _unloadPlace = _base.SetUnloadPlace();
     }
 }

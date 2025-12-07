@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BotsTaskManager : MonoBehaviour
 {
-    [SerializeField] private Bots _bots;
+    [SerializeField] private BotsList _bots;
     [SerializeField] private ObjectList _list;
 
     private void Update()

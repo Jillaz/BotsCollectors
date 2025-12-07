@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bots : MonoBehaviour
+public class BotsList : MonoBehaviour
 {
     [SerializeField] private List<Bot> _bots;
     [SerializeField] private Base _base;
