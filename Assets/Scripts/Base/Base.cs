@@ -13,7 +13,7 @@ public class Base : MonoBehaviour
         PerlDelivered?.Invoke();
     }
 
-    public Transform SetUnloadPlace()
+    public Transform UnloadPlace()
     {
         return _unloadPlace;
     }

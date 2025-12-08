@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Bot : MonoBehaviour
@@ -37,6 +36,6 @@ public class Bot : MonoBehaviour
     public void SetBasePosition(Base mainBase)
     {
         _base = mainBase;
-        _unloadPlace = _base.SetUnloadPlace();
+        _unloadPlace = _base.UnloadPlace();
     }
 }
