@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Base : MonoBehaviour
 {
-    [SerializeField] private Transform _unloadPlace;
+    [SerializeField] private Transform _unloadingLocation;
 
     public event Action PerlDelivered;
 
@@ -13,8 +13,8 @@ public class Base : MonoBehaviour
         PerlDelivered?.Invoke();
     }
 
-    public Transform UnloadPlace()
+    public Transform UnloadingLocation()
     {
-        return _unloadPlace;
+        return _unloadingLocation;
     }
 }

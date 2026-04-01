@@ -96,6 +96,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &2398959952148072145
 CapsuleCollider:
@@ -110,7 +111,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -162,6 +163,7 @@ MonoBehaviour:
   _mover: {fileID: 895562761552217722}
   _rotator: {fileID: 4348048142008766354}
   _extractor: {fileID: 6844180342500661366}
+  _builder: {fileID: 0}
 --- !u!114 &6844180342500661366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExtractorCoroutine
   _storage: {fileID: 621310068636643524}
-  _liftSpeed: 2
+  _liftSpeed: 3
   _targetDistanceOffset: 0.1
 --- !u!114 &895562761552217722
 MonoBehaviour:
@@ -294,6 +296,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4441349960935809181
 BoxCollider:

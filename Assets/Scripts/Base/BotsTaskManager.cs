@@ -10,13 +10,23 @@ public class BotsTaskManager : MonoBehaviour
         SetTask();
     }
 
+    public void BuildBase(Vector3 buildPlace, Base basePrefab)
+    {
+        Bot bot = _bots.GetFreeBot();
+
+        if (bot != null)
+        {
+            bot.StartBuilding(buildPlace, basePrefab);
+        }
+    }
+
     private void SetTask()
     {
         Bot bot = _bots.GetFreeBot();
 
         if (bot != null)
         {
-            bot.SetPerl(_list.Get());
+            bot.SetPerl(_list.Get());            
         }
     }
 }

@@ -4,23 +4,29 @@ using UnityEngine;
 public class Counter : MonoBehaviour
 {
     [SerializeField] private Base _base;
-    private int value = 0;
+    private int _value = 0;
 
     public event Action<int> ValueChanged;
 
     private void OnEnable()
     {
-        _base.PerlDelivered += ChangeValue;
+        _base.PerlDelivered += IncreaseValue;
     }
 
     private void OnDisable()
     {
-        _base.PerlDelivered -= ChangeValue;        
+        _base.PerlDelivered -= IncreaseValue;        
     }
 
-    private void ChangeValue()
+    private void IncreaseValue()
     {
-        value++;
-        ValueChanged?.Invoke(value);
+        _value++;
+        ValueChanged?.Invoke(_value);
+    }
+
+    public void ReduceValue(int value)
+    {
+        _value -= value;
+        ValueChanged?.Invoke(_value);
     }
 }

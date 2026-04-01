@@ -29,7 +29,7 @@ public class PerlSpawner : MonoBehaviour
 
     private void SpawnPerl()
     {
-        Perl perl = _pool.Get();
+        Perl perl = _pool.Get();        
         perl.transform.position = _spawnArea.GetSpawnPosition();
         perl.Release += Release;
     }
