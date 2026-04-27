@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class Bot : MonoBehaviour
     private Perl _perl;
     private Base _base;
     private Transform _unloadingLocation;
+
+    public event Action<BotsList> BuildComplite;
 
     public bool IsBusy { get; private set; } = false;
 
@@ -26,14 +29,15 @@ public class Bot : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator BuildingActionsQueue(Vector3 buildPlace, Base basePrefab)
+    private IEnumerator BuildingActionsQueue(Vector3 buildPlace, BotsList basePrefab)
     {
-        Debug.Log("Bot: " + buildPlace);
         yield return _rotator.SmoothLookAt(buildPlace);
         yield return _mover.MoveTo(buildPlace);
-        Instantiate(basePrefab, buildPlace, Quaternion.identity);
 
+        BotsList newBase = Instantiate(basePrefab, buildPlace, Quaternion.identity);
+        BuildComplite?.Invoke(newBase);
         IsBusy = false;
+
         yield return null;
     }
 
@@ -49,7 +53,7 @@ public class Bot : MonoBehaviour
         StartCoroutine(ActionsQueue());
     }
 
-    public void StartBuilding(Vector3 buildPlace, Base basePrefab)
+    public void StartBuild(Vector3 buildPlace, BotsList basePrefab)
     {
         IsBusy = true;
         _base = null;
@@ -63,6 +67,18 @@ public class Bot : MonoBehaviour
         {
             _base = mainBase;
             _unloadingLocation = _base.UnloadingLocation();
+        }
+    }
+
+    public bool IsHasBase()
+    {
+        if (_base == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

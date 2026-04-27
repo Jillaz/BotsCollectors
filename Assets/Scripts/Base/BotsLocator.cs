@@ -16,7 +16,10 @@ public class BotsLocator : MonoBehaviour
         {
             if (collider.TryGetComponent(out Bot bot))
             {
-                _bot.Add(bot);
+                if (bot.IsHasBase() == false)
+                {
+                    _bot.Add(bot);
+                }
             }
         }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CapturedPerls : MonoBehaviour
 {
-    private List<Perl> _capturedPerls = new List<Perl>();
+    private HashSet<Perl> _capturedPerls = new HashSet<Perl>();
 
     public void Add(Perl perl)
     {

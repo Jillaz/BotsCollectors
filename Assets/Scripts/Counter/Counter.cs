@@ -18,6 +18,11 @@ public class Counter : MonoBehaviour
         _base.PerlDelivered -= IncreaseValue;        
     }
 
+    private void Start()
+    {
+        ValueChanged?.Invoke(_value);        
+    }
+
     private void IncreaseValue()
     {
         _value++;

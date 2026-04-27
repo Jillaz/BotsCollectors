@@ -5,7 +5,7 @@ public class ObjectList : MonoBehaviour
 {
     [SerializeField] private PerlsLocator _perlsLocator;
     [SerializeField] private CapturedPerls _capturedPerls;
-    private List<Perl> _findedPerls = new List<Perl>();
+    private HashSet<Perl> _findedPerls = new HashSet<Perl>();
 
     public Perl Get()
     {

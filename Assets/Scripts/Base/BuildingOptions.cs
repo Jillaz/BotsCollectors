@@ -3,9 +3,9 @@ using UnityEngine;
 public class BuildingOptions : MonoBehaviour
 {
     [SerializeField] private Bot _botPrefab;
-    [SerializeField] private Base _basePrefab;
+    [SerializeField] private BotsList _basePrefab;
     [SerializeField] private int _botPrice;
-    [SerializeField] private int _basePrice;    
+    [SerializeField] private int _basePrice;
 
     public int GetBotPrice()
     {
@@ -22,7 +22,7 @@ public class BuildingOptions : MonoBehaviour
         return _basePrice;
     }
 
-    public Base GetBase()
+    public BotsList GetBase()
     {
         return _basePrefab;
     }

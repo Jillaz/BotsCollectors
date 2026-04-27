@@ -6,9 +6,9 @@ public class PerlsLocator : MonoBehaviour
     [SerializeField] private float _searchRadius;
     [SerializeField] private LayerMask _layerMask;
 
-    public List<Perl> Search()
+    public HashSet<Perl> Search()
     {
-        List<Perl> _perl = new List<Perl>();
+        HashSet<Perl> _perl = new HashSet<Perl>();
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, _searchRadius, _layerMask);
 
