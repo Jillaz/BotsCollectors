@@ -4,11 +4,11 @@ using UnityEngine;
 public class MoverCoroutine : MonoBehaviour
 {    
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _targetDistanceOffset = 1f;  
+    [SerializeField] private float _targetDistanceOffset = 1f;
 
     public IEnumerator MoveTo(Vector3 targetPosition)
-    {
-        while (Vector3.Distance(transform.position, targetPosition) > _targetDistanceOffset)
+    {        
+        while (IsTargetReached(targetPosition) == false)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, _moveSpeed * Time.deltaTime);
 
@@ -16,5 +16,10 @@ public class MoverCoroutine : MonoBehaviour
         }
 
         transform.position = targetPosition;
+    }
+
+    private bool IsTargetReached(Vector3 targetPosition)
+    {
+        return transform.position.IsEnoughClose(targetPosition, _targetDistanceOffset);
     }
 }

@@ -3,11 +3,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerInputController : MonoBehaviour
+public class Raycaster : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Camera _camera;
-    [SerializeField] GameObject _marker;
     private float _distance = 1000f;
 
     public event Action<RaycastHit> MouseClicked;

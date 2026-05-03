@@ -8,7 +8,7 @@ public class Builder : MonoBehaviour
     [SerializeField] private BuildingOptions _buildingOptions;
     [SerializeField] private BotsTaskManager _botsTaskManager;
     [SerializeField] private ParticleSystem _particleSystem;
-    [SerializeField] private PlayerInputController _playerInputController;
+    [SerializeField] private Raycaster _playerInputController;
     [SerializeField] private Flag _buildFlag;
     private bool _isBuildBase = false;
     private bool _isSelected = false;

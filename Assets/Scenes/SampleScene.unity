@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 895562761552217722, guid: 00d6ca1eae9f78741a7a6237d27f20d1, type: 3}
+      propertyPath: _moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2080327114900416743, guid: 00d6ca1eae9f78741a7a6237d27f20d1, type: 3}
       propertyPath: _buildingOptions
       value: 
@@ -472,7 +476,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194230}
-  - component: {fileID: 963194229}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -554,23 +558,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adba95e9e562f37419c241eaabac7650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputController
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 768
-  _camera: {fileID: 963194227}
-  _marker: {fileID: 1668588463010304298, guid: 1c4cd1757620e1b45a04be03dca5d2f0, type: 3}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +588,22 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76026f51d0b5eb349a8b3c2b352dcd4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Raycaster
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 768
+  _camera: {fileID: 963194227}
 --- !u!1 &992832620
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 2766753922219157000, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       propertyPath: _playerInputController
       value: 
-      objectReference: {fileID: 963194229}
+      objectReference: {fileID: 963194231}
     - target: {fileID: 6003282791885048263, guid: d27161803a36cfe45b28d2fcc91c3e48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
