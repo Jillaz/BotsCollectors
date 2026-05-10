@@ -14,6 +14,7 @@ public class Bot : MonoBehaviour
     public event Action<BotsList> BuildComplite;
 
     public bool IsBusy { get; private set; } = false;
+    public bool IsHasBase => _base != null;
 
     private IEnumerator ActionsQueue()
     {
@@ -67,18 +68,6 @@ public class Bot : MonoBehaviour
         {
             _base = mainBase;
             _unloadingLocation = _base.UnloadingLocation();
-        }
-    }
-
-    public bool IsHasBase()
-    {
-        if (_base == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
         }
     }
 }

@@ -6,7 +6,6 @@ public class BotsList : MonoBehaviour
     [SerializeField] private Base _base;
     [SerializeField] private BotsLocator _botsLocator;
     private List<Bot> _bots;
-    private Bot _removeBot = null;
 
     private void Start()
     {
@@ -15,22 +14,13 @@ public class BotsList : MonoBehaviour
 
     public Bot GetFreeBot()
     {
-        if (_removeBot == null)
+        foreach (var bot in _bots)
         {
-            foreach (var bot in _bots)
+            if (bot.IsBusy == false)
             {
-                if (bot.IsBusy == false)
-                {
-                    return bot;
-                }
+                return bot;
             }
         }
-        else
-        {
-            _bots.Remove(_removeBot);
-            _removeBot = null;
-        }
-
 
         return null;
     }
@@ -43,7 +33,7 @@ public class BotsList : MonoBehaviour
 
     public void Remove(Bot bot)
     {
-        _removeBot = bot;
+        _bots.Remove(bot);
     }
 
     public int Count()
