@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 public class ObjectSelector : MonoBehaviour
@@ -28,8 +27,7 @@ public class ObjectSelector : MonoBehaviour
     {
         if (hit.collider.GetComponent<Builder>())
         {
-            _builder = hit.collider.GetComponent<Builder>();
-            Select();
+            Select(hit);
         }
         else if (_builder != null)
         {
@@ -37,8 +35,10 @@ public class ObjectSelector : MonoBehaviour
         }
     }
 
-    private void Select()
+    private void Select(RaycastHit hit)
     {
+        _builder = hit.collider.GetComponent<Builder>();
+
         _particleSystem.transform.position = _builder.transform.position;
         _particleSystem.Play();
 
